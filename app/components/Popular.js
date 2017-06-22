@@ -1,4 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+function SelectedLanguage({updateLanguage, selectedLanguage}) {
+	const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
+	
+	return (
+		<div>
+			<ul className='languages'>
+				{languages.map(language => {
+					return (
+						<li key={language}
+								onClick={() => updateLanguage(language)}
+								style={language === selectedLanguage ? { color: '#d0021b' } : null}>
+							{language}
+						</li>
+					)
+				})}
+			</ul>
+		</div>
+	)
+}
 
 class Popular extends React.Component {
 	constructor(props) {
@@ -15,20 +36,11 @@ class Popular extends React.Component {
 	}
 
 	render() {
-		const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
 		return (
 			<div>
-				<ul className='languages'>
-					{languages.map(language => {
-						return (
-							<li key={language}
-									onClick={() => this.updateLanguage(language)}
-									style={language === this.state.selectedLanguage ? { color: '#d0021b' } : null}>
-								{language}
-							</li>
-						)
-					})}
-				</ul>
+				<SelectedLanguage 
+					selectedLanguage={this.state.selectedLanguage}
+					updateLanguage={this.updateLanguage} />
 			</div>
 		)
 	}
