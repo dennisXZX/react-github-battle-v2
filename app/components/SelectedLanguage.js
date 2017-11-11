@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const SelectedLanguage = ({updateLanguage, selectedLanguage}) => {
+const SelectedLanguage = ({selectedLanguage, updateLanguage}) => {
+
+  // initialize the language options in nav bar
   const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
 
   return (
     <div>
       <ul className='languages'>
-        {languages.map((language) => {
+        {languages.map(language => {
           return (
             <li key={language}
                 onClick={() => updateLanguage(language)}
@@ -18,6 +21,11 @@ const SelectedLanguage = ({updateLanguage, selectedLanguage}) => {
       </ul>
     </div>
   )
+}
+
+SelectedLanguage.propTypes = {
+  selectedLanguage: PropTypes.string.isRequired,
+  updateLanguage: PropTypes.func.isRequired
 }
 
 export default SelectedLanguage;
