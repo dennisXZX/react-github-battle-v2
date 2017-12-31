@@ -9,6 +9,5 @@ export default {
     // in the callback we return the items property from the response
 		return axios.get(encodedURI)
 			.then(response => response.data.items);
-
 	}
 }

@@ -7,12 +7,17 @@ class Popular extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// initialize the state
 		this.state = {
 			selectedLanguage: 'All',
 			repos: null
 		};
 	}
+
+  // update the selected language and fetch its Github repos when the component is mounted
+  // the default selected language is 'All'
+  componentDidMount() {
+    this.updateLanguage(this.state.selectedLanguage);
+  }
 
 	updateLanguage = (lang) => {
 		this.setState({
@@ -43,11 +48,6 @@ class Popular extends React.Component {
 		)
 	}
 
-	// update the selected language and fetch its Github repos when the component is mounted
-  // the default selected language is 'All'
-	componentDidMount() {
-		this.updateLanguage(this.state.selectedLanguage);
-	}
 }
 
 export default Popular;

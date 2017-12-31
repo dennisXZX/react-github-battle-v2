@@ -1,8 +1,11 @@
 import React from 'react';
 
 import Nav from './Nav';
+import Home from './Home';
+import Battle from './Battle';
 import Popular from './Popular';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Error404 from './Error404';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 	render() {
@@ -10,7 +13,12 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <Nav />
-          <Route path="/popular" component={Popular} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/battle" component={Battle} />
+            <Route path="/popular" component={Popular} />
+            <Route component={Error404}></Route>
+          </Switch>
         </div>
       </Router>
 		)
