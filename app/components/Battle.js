@@ -1,24 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
-const PlayerPreview = (props) => {
-  return (
-    <div>
-      <div className='column'>
-        <img
-          className='avatar'
-          src={props.avatar}
-          alt={props.username} />
-        <h2 className='username'>@{props.username}</h2>
-      </div>
-      <button
-        className='reset'
-        onClick={() => props.onReset(props.id)}>
-        Reset
-      </button>
-    </div>
-  )
-};
+import PlayerPreview from './PlayerPreview';
 
 class PlayerInput extends Component {
   constructor(props) {
@@ -110,30 +92,38 @@ class Battle extends Component {
           <PlayerInput
             id='playerOne'
             label='Player One'
-            defaultUsername='dennisboys'
+            defaultUsername='dennisboy'
             onSubmit={this.handleSubmit} />}
 
           {playerOneImage !== null &&
           <PlayerPreview
             avatar={playerOneImage}
-            username={playerOneName}
-            id='playerOne'
-            onReset={this.handleReset} />}
+            username={playerOneName}>
+            <button
+              className='reset'
+              onClick={() => this.handleReset('playerOne')}>
+              Reset
+            </button>
+          </PlayerPreview>}
 
           {/* Player Two */}
           {!playerTwoName &&
           <PlayerInput
             id='playerTwo'
             label='Player Two'
-            defaultUsername='stevemao'
+            defaultUsername='stevema'
             onSubmit={this.handleSubmit} />}
 
           {playerTwoImage !== null &&
           <PlayerPreview
             avatar={playerTwoImage}
-            username={playerTwoName}
-            id='playerTwo'
-            onReset={this.handleReset} />}
+            username={playerTwoName}>
+            <button
+              className='reset'
+              onClick={() => this.handleReset('playerTwo')}>
+              Reset
+            </button>
+          </PlayerPreview>}
         </div>
 
         {/* When both players have entered the info, shows the Battle button */}
