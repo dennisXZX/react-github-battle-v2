@@ -53,7 +53,7 @@ class PlayerInput extends Component {
           placeholder='Github username'
           type='text'
           autoComplete='off'
-          value={this.state.username}
+          value={this.state.username || this.props.defaultUsername}
           onChange={this.handleChange} />
         <button
           className='button'
@@ -110,6 +110,7 @@ class Battle extends Component {
           <PlayerInput
             id='playerOne'
             label='Player One'
+            defaultUsername='dennisboys'
             onSubmit={this.handleSubmit} />}
 
           {playerOneImage !== null &&
@@ -124,6 +125,7 @@ class Battle extends Component {
           <PlayerInput
             id='playerTwo'
             label='Player Two'
+            defaultUsername='stevemao'
             onSubmit={this.handleSubmit} />}
 
           {playerTwoImage !== null &&
@@ -139,7 +141,7 @@ class Battle extends Component {
           <Link
             className='button'
             to={{
-              pathname: `${this.props.match.url}/result`,
+              pathname: `${this.props.match.url}/results`,
               search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
             }}>
             Battle

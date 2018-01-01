@@ -17,6 +17,7 @@ function getProfile(username) {
 */
 function getRepos(username) {
   return axios.get(`https://api.github.com/users/${username}/repos?per_page=100`);
+}
 
 /*
  sum up the star of a repo
