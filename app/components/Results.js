@@ -12,7 +12,7 @@ const Profile = (props) => {
   return (
     <PlayerPreview
       avatar={info.avatar_url}
-      username={info.info}>
+      username={info.login}>
       <ul className="space-list-items">
         {info.name && <li>{info.name}</li>}
         {info.location && <li>{info.location}</li>}
