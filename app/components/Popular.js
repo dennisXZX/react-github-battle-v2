@@ -2,6 +2,7 @@ import React from 'react';
 import api from '../utils/api';
 import SelectedLanguage from './SelectedLanguage';
 import RepoGrid from './RepoGrid';
+import Loading from './Loading';
 
 class Popular extends React.Component {
 	constructor(props) {
@@ -43,7 +44,7 @@ class Popular extends React.Component {
         {this.state.repos
           ? <RepoGrid
             repos={this.state.repos} />
-          : <h1 style={{textAlign: "center"}}>Loading repos for you...</h1>}
+          : <Loading />}
 			</div>
 		)
 	}
